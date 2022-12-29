@@ -3,6 +3,7 @@ from django.views import View
 
 from paint_app.forms import ColorPickerForm
 # Create your views here.
+
 class ColorPickerView(View):
     def get(self, request):
         color_form = ColorPickerForm()
@@ -20,9 +21,9 @@ class ColorPickerView(View):
         }
 
         return render(
-        request=request, 
-        template_name='color_picker.html', 
-        context=html_data
+            request=request, 
+            template_name='color_picker.html', 
+            context=html_data,
         )
 
     def post(self, request):
@@ -37,14 +38,15 @@ class ColorPickerView(View):
             'form': color_form,
             'red': red_value,
             'green': green_value,
-            'blue': blue_value,
+            'blue': blue_value,    
         }
 
         return render(
             request=request, 
             template_name='color_picker.html', 
-            context=html_data
-            )
+            context=html_data,
+        )
+
 
 
 
